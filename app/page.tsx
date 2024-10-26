@@ -1,7 +1,8 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const Home = () => {
-  return <div>this is homepage</div>;
+  return <>this is homepage</>;
 };
 
 export default Home;

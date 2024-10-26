@@ -4,6 +4,8 @@ import { navLinkData } from "@/data/data"; // Import as "navLinkData"
 import Link from "next/link";
 import NavLink from "./NavLink";
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import { playfair } from "@/app/ui/fonts";
+import { Button } from "@/components/ui/button";
 
 const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -52,20 +54,31 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="h-12 bg-teal-600 flex justify-between items-center px-4 sm:px-8 md:px-20 lg:px-48 relative">
+    <div className="h-14 bg-white flex justify-between items-center px-4 sm:px-8 md:px-20 lg:px-48 relative">
       {/* Logo */}
       <div className="z-40">
-        <Link href="/">✨MB</Link>
+        <Link
+          href="/"
+          className={`${playfair.className} antialiased text-2xl text-orange-600`}
+        >
+          Haven List
+        </Link>
       </div>
 
       {/* Desktop menu */}
-      <div className="hidden md:flex gap-4">
+      <div className="hidden md:flex gap-4 items-center">
         {navLinkData.map((link) => (
           <NavLink link={link} key={link.id} />
         ))}
+        <Button
+          variant="outline"
+          className="bg-orange-500 text-white border-none rounded-full hover:text-orange-600"
+        >
+          Add property
+        </Button>
       </div>
 
-      {/* Responsive menu - Nav links */}
+      {/* Mobile Responsive menu - Nav links */}
       <div className="md:hidden">
         <button
           className="flex flex-col gap-2 relative z-50"
@@ -74,17 +87,17 @@ const Navbar: React.FC = () => {
           <motion.div
             variants={topHamBarVariants}
             animate={open ? "cross" : "ham"}
-            className="w-7 h-0.5 bg-white rounded-lg origin-left"
+            className="w-7 h-0.5 bg-gray-900 rounded-lg origin-left"
           ></motion.div>
           <motion.div
             variants={centerHamBarVariants}
             animate={open ? "cross" : "ham"}
-            className="w-7 h-0.5 bg-white rounded-lg"
+            className="w-7 h-0.5 bg-gray-900 rounded-lg"
           ></motion.div>
           <motion.div
             variants={bottomHamBarVariants}
             animate={open ? "cross" : "ham"}
-            className="w-7 h-0.5 bg-white rounded-lg origin-left"
+            className="w-7 h-0.5 bg-gray-900 rounded-lg origin-left"
           ></motion.div>
         </button>
         <AnimatePresence>
@@ -94,7 +107,7 @@ const Navbar: React.FC = () => {
               initial="off"
               animate="on"
               exit="off"
-              className="h-screen w-screen absolute top-0 left-0 bg-gray-900 items-center justify-center flex flex-col gap-12 text-2xl"
+              className="h-screen w-screen absolute top-0 left-0 bg-amber-950 text-white items-center justify-center flex flex-col gap-12 text-2xl"
             >
               {navLinkData.map((link) => (
                 <motion.div
@@ -109,6 +122,19 @@ const Navbar: React.FC = () => {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                variants={navLinksItemsVariant}
+                initial="moff"
+                animate="mon"
+                exit="moff"
+              >
+                <Button
+                  variant="outline"
+                  className="bg-orange-600 text-white text-xl px-8 border-none rounded-full hover:text-orange-500"
+                >
+                  Add Property
+                </Button>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

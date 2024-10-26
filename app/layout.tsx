@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import "./globals.css";
+import "@/app/ui/globals.css";
 
 export const metadata = {
   title: "Haven List Properties",
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-700 text-white">
+      <body className="bg-gray-700">
         <Navbar />
         {children}
         <Footer />

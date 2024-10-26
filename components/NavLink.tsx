@@ -12,7 +12,10 @@ const NavLink: React.FC<NavLinkProps> = ({ link }) => {
   console.log(pathName);
 
   return (
-    <Link className={pathName === link.url ? "bg-red-500" : ""} href={link.url}>
+    <Link
+      className={pathName === link.url ? "text-orange-500" : ""}
+      href={link.url}
+    >
       {link.title}
     </Link>
   );
