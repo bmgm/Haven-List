@@ -1,8 +1,13 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+import Hero from "@/components/Hero.jsx";
+import HomeProperties from "@/components/HomeProperties";
 
 const Home = () => {
-  return <>this is homepage</>;
+  return (
+    <>
+      <Hero />
+      <HomeProperties />
+    </>
+  );
 };
 
 export default Home;

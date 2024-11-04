@@ -54,19 +54,19 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="h-14 bg-white flex justify-between items-center px-4 sm:px-8 md:px-20 lg:px-48 relative">
+    <div className="h-14 bg-white flex justify-between items-center px-4 relative border-b container mx-auto">
       {/* Logo */}
       <div className="z-40">
         <Link
           href="/"
           className={`${playfair.className} antialiased text-2xl text-orange-600`}
         >
-          Haven List
+          Heaven List
         </Link>
       </div>
 
       {/* Desktop menu */}
-      <div className="hidden md:flex gap-4 items-center">
+      <div className="hidden md:flex gap-6 items-center">
         {navLinkData.map((link) => (
           <NavLink link={link} key={link.id} />
         ))}
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
               initial="off"
               animate="on"
               exit="off"
-              className="h-screen w-screen absolute top-0 left-0 bg-amber-950 text-white items-center justify-center flex flex-col gap-12 text-2xl"
+              className="z-40 h-screen w-screen absolute top-0 left-0 bg-amber-950 text-white items-center justify-center flex flex-col gap-12 text-2xl"
             >
               {navLinkData.map((link) => (
                 <motion.div
